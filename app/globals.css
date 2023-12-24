@@ -3,25 +3,133 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+    :root {
+        --foreground-rgb: 255, 255, 255;
+        --background-start-rgb: 0, 0, 0;
+        --background-end-rgb: 0, 0, 0;
+    }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    color: rgb(var(--foreground-rgb));
+    background-color: #090909;
+}
+
+.absolute {
+    position: fixed;
+    width: 75%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+}
+
+.flexW {
+    justify-content: center;
+    align-items: end;
+    height: 100vh;
+    width: 100vw;
+    padding-bottom: 5em;
+    position: fixed;
+    gap: .5em;
+}
+
+.h {
+    height: 200vh;
+}
+
+.btn {
+    position: relative;
+    display: inline-block;
+    border: none;
+    border-radius: 50px;
+    background: none;
+    padding: 25px 75px;
+    z-index: 9999;
+
+}
+
+.btn a {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .2);
+    border-top: 1px solid rgba(255, 255, 255, .1);
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 10px;
+    color: rgba(241, 241, 241, 0.72);
+    z-index: 10;
+    font-weight: 200;
+    letter-spacing: 1px;
+    font-size: 12px;
+    text-decoration: none;
+    overflow: hidden;
+    text-transform: uppercase;
+    transition: all .3s ease-in-out;
+    backdrop-filter: blur(15px);
+}
+
+.btn:hover a {
+    color: rgba(241, 241, 241, 0.8);
+    font-weight: 800;
+    cursor: pointer;
+    letter-spacing: 2px;
+}
+
+.btn::before,
+.btn::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 10px;
+    border-radius: 10px;
+    background: #f00;
+    transition: all .4s ease-in-out;
+    transition-delay: 0s;
+}
+
+.btn::before {
+    bottom: 0;
+}
+
+.btn::before,
+.btn:nth-child(2):after {
+    background: #ff65f7;
+    box-shadow: 0 0 5px #83099e,
+    0 0 15px #1951ff,
+    0 0 30px #0683ff,
+    0 0 60px #e115ff;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background: #0683ff;
+    }
+    50% {
+        background: #ff65f7;
+    }
+    100% {
+        background: #00ff66;
+    }
+    0%, 50% {
+        background: #ff65f7;
+    }
+}
+
+.btn::before {
+    bottom: 0;
+    animation: gradientAnimation 5s infinite;
 }
