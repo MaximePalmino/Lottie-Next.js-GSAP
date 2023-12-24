@@ -1,10 +1,10 @@
 'use client'
 import React, {useEffect, useState, useRef} from 'react';
 import Lottie from 'lottie-react';
-import EyeAnimation from '@/assets/svg/Oeil.json';
-import Fougeres from "@/assets/svg/Fougeres.json"
-import Leaves from "@/assets/svg/Leaves.json"
-import Hands from "@/assets/svg/Hands.json"
+import EyeAnimation from '../..//assets/svg/Oeil.json';
+import Fougeres from "../../assets/svg/Fougeres.json"
+import Leaves from "../..//assets/svg/Leaves.json"
+import Hands from "../..//assets/svg/Hands.json"
 import FlowersAnimation from '@/assets/svg/Flor.json';
 import CircleComponent from '@/app/components/Circle';
 import InvertedCircleComponent from '@/app/components/InvertedCircle';
