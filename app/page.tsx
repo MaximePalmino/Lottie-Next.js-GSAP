@@ -64,7 +64,7 @@ const Home = () => {
         (!isAnswered ? <div className={'flex justify-center items-end h-full w-full pb-5 fixed gap-4'}>
                     <div className='flex justify-around pt-32 h-full items-center gap-8  flex-col'>
                         <div className='flex flex-col justify-center items-center  gap-8 h-full '>
-                            <p className='opacity-75'>Do you allow music ?</p>
+                            <p className='opacity-75 text-white'>Do you allow music ?</p>
                             <div className='flex gap-4 '>
                                 <button className="btn" onClick={handleAcceptMusic}><a href="#">Yes</a>
                                 </button>

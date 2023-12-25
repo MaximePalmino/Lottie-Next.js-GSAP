@@ -132,7 +132,7 @@ const Home = () => {
                 </div>
                 <div className='flex justify-around pt-32 h-full items-center gap-8  flex-col'>
                     <div ref={btnRef} className='flex gap-2'>
-                        <p className='opacity-60'>Scroll</p>
+                        <p className='opacity-60 text-white'>Scroll</p>
                         <div className='flex opacity-60'>
                             <Image width={'15'} height={'20'} src={Arrow} alt={'arrow'}/>
                             <Image style={{transform: 'rotate(180deg)'}} width={'15'} height={'20'} src={Arrow}
