@@ -3,30 +3,27 @@ import React, {useEffect, useState, useRef, useLayoutEffect} from 'react';
 import {lazy} from 'react';
 
 const Lottie = lazy(() => import('lottie-react'))
-import EyeAnimation from '@/assets/svg/Oeil.json';
-import Fougeres from "@/assets/svg/Fougeres.json"
-import Leaves from "@/assets/svg/Leaves.json"
+import EyeAnimation from '@/assets/svg/eye.json';
+import Fern from "@/assets/svg/fern.json"
+import Leaves from "@/assets/svg/leaves.json"
 import Hands from "@/assets/svg/blue-hands.json"
-import FlowersAnimation from '@/assets/svg/Flor.json';
+import FlowersAnimation from '@/assets/svg/whole-animation.json';
 import CircleComponent from '@/app/components/Circle';
 import InvertedCircleComponent from '@/app/components/InvertedCircle';
 import gsap from 'gsap';
-import Arrow from "@/assets/svg/Arrow.svg"
+import Arrow from "@/assets/svg/arrow.svg"
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import Image from "next/image";
 import Link from "next/link";
 
-// Home component definition
 const Home = () => {
-    // State variables
-    const [showCircle, setShowCircle] = useState(true);
     const [isAnimationFinished, setIsAnimationFinished] = useState(false);
 
     // Refs for GSAP animations
-    const firstAnimationRef = useRef(null);
+    const FlowersAnimationRef = useRef(null);
     const circleRef = useRef(null);
     const invertedCircleRef = useRef(null);
-    const fougereRef = useRef(null);
+    const fernRef = useRef(null);
     const leavesRef = useRef(null);
     const handsRef = useRef(null);
     const eyeRef = useRef(null);
@@ -35,10 +32,8 @@ const Home = () => {
 
     // Effect for GSAP animations
     useEffect(() => {
-
         gsap.registerPlugin(ScrollTrigger);
-
-        gsap.fromTo(firstAnimationRef.current, {autoAlpha: 0, scale: 1.2, delay: 2}, {
+        gsap.fromTo(FlowersAnimationRef.current, {autoAlpha: 0, scale: 1.2, delay: 2}, {
             scale: 1,
             autoAlpha: 1,
             duration: 2,
@@ -47,24 +42,24 @@ const Home = () => {
 
         gsap.fromTo(circleRef.current, {autoAlpha: 0, duration: 1}, {autoAlpha: 1, delay: 1.3});
         gsap.fromTo(invertedCircleRef.current, {autoAlpha: 0, duration: 1}, {autoAlpha: 1, delay: 1.5});
-        gsap.fromTo(fougereRef.current, {opacity: 0}, {opacity: 1, duration: 0.3, delay: 2.8});
+        gsap.fromTo(fernRef.current, {opacity: 0}, {opacity: 1, duration: 0.3, delay: 2.8});
         gsap.fromTo(leavesRef.current, {opacity: 0}, {opacity: 1, duration: 0.3, delay: 2.8});
         gsap.fromTo(handsRef.current, {opacity: 0}, {opacity: 1, duration: 0.3, delay: 2.8});
         gsap.fromTo(eyeRef.current, {opacity: 0}, {opacity: 1, duration: 0.3, delay: 2.8});
         gsap.fromTo(btnRef.current, {opacity: 0}, {opacity: 1, duration: 2, delay: 3});
 
         setTimeout(() => {
-            gsap.fromTo(firstAnimationRef.current, {opacity: 1, scale: 1, rotate: 0}, {
+            gsap.fromTo(FlowersAnimationRef.current, {opacity: 1, scale: 1, rotate: 0}, {
                 opacity: 0,
-                duration: 1.5,
+                duration: 4,
                 scale: 1.2,
                 rotate: 2
             });
 
-            gsap.fromTo(fougereRef.current, {scale: 1, rotate: 0, autoAlpha: 1}, {
+            gsap.fromTo(fernRef.current, {scale: 1, rotate: 0, autoAlpha: 1}, {
                 scale: 0.3, rotate: 70,
                 scrollTrigger: {
-                    trigger: fougereRef.current,
+                    trigger: fernRef.current,
                     start: 'top',
                     scrub: 3,
                     markers: false
@@ -106,12 +101,12 @@ const Home = () => {
                     <InvertedCircleComponent/>
                 </div>
                 <div className={'child'}>
-                    <div style={{zIndex: '3'}} className={'absolute'} ref={firstAnimationRef}>
+                    <div style={{zIndex: '3'}} className={'absolute'} ref={FlowersAnimationRef}>
                         <Lottie animationData={FlowersAnimation} loop={true}/>
                     </div>
                     <>
-                        <div className={'absolute'} style={{zIndex: '2'}} ref={fougereRef}>
-                            <Lottie animationData={Fougeres} loop={true}/>
+                        <div className={'absolute'} style={{zIndex: '2'}} ref={fernRef}>
+                            <Lottie animationData={Fern} loop={true}/>
                         </div>
                         <div className={'absolute'} style={{zIndex: '1'}} ref={leavesRef}>
                             <Lottie animationData={Leaves} loop={true}/>
@@ -132,10 +127,7 @@ const Home = () => {
                             <Image style={{transform: 'rotate(180deg)'}} width={'15'} height={'20'} src={Arrow}
                                    alt={'arrow'}/>
                         </div>
-
-
                     </div>
-
                     <div className='flex justify-center items-end  gap-8 h-full '>
                         <button className="btn"><Link href="https://www.linkedin.com/in/maxime-palmino-167930100/"
                                                       target="_blank">LinkedIn</Link></button>
@@ -147,11 +139,8 @@ const Home = () => {
                                                       target="_blank">GitHub</Link></button>
                     </div>
                     <p className='opacity-60 font-light text-xs'>Music: Resonance x Genesis x Not Allowed (Slowed)</p>
-
                 </div>
-
             </div>
-
         </div>
     );
 };

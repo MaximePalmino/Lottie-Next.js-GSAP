@@ -1,10 +1,8 @@
 'use client'
-import React, {useEffect, useLayoutEffect, useRef, useState} from 'react';
+import React, {useLayoutEffect, useState} from 'react';
 import Main from "@/app/components/Main";
 import Sound from "@/public/Reson1.mp3"
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/dist/ScrollTrigger';
-// Home component definition
+
 const Home = () => {
 
     const [isAnswered, setIsAnswered] = useState<boolean>(false)
@@ -20,13 +18,10 @@ const Home = () => {
     }
     const handleButtonClick = () => {
         const hElements = document.getElementsByClassName('random-h');
-
-        // Remove existing "H" elements
         while (hElements.length > 0) {
             // @ts-ignore
             hElements[0].parentNode.removeChild(hElements[0]);
         }
-
         // Generate and add new "H" elements with GSAP animation for opacity
         for (let i = 0; i < 30; i++) {
             const hElement = document.createElement('div');
@@ -54,11 +49,9 @@ const Home = () => {
                 duration: .5, // Adjust the duration as needed
                 delay: Math.random(), // Introduce a delay for a staggered effect
             });
-
             hElement.style.animation = `moveRandomly ${animationDuration}s infinite linear ${
                 animationDirection > 0 ? 'normal' : 'reverse'
             }`;
-
             document.body.appendChild(hElement);
         }
     };
