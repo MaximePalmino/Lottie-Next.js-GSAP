@@ -35,8 +35,7 @@ const Home = () => {
     const eyeRef = useRef(null);
     const btnRef = useRef(null)
     // Effect for GSAP animations
-    useGSAP(() => {
-
+    useEffect(() => {
         gsap.fromTo(firstAnimationRef.current, {autoAlpha: 0, scale: 1.2, delay: 2}, {
             scale: 1,
             autoAlpha: 1,
