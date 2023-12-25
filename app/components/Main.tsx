@@ -1,6 +1,8 @@
 'use client'
 import React, {useEffect, useState, useRef} from 'react';
-import Lottie from 'lottie-react';
+import { lazy } from 'react';
+import loadable from '@loadable/component'
+const Lottie = lazy(() => import('lottie-react'))
 import EyeAnimation from '../../assets/svg/Oeil.json';
 import Fougeres from "../../assets/svg/Fougeres.json"
 import Leaves from "../../assets/svg/Leaves.json"
@@ -33,6 +35,7 @@ const Home = () => {
     const btnRef = useRef(null)
     // Effect for GSAP animations
     useEffect(() => {
+
         gsap.fromTo(firstAnimationRef.current, {autoAlpha: 0, scale: 1.2, delay: 2}, {
             scale: 1,
             autoAlpha: 1,
@@ -98,7 +101,7 @@ const Home = () => {
     return (
         <div className={isAnimationFinished ? 'h' : ''}>
             <div className={'flexW maxH'}>
-                <div style={{zIndex: '3'}} ref={circleRef}>
+                <div style={{zIndex: '9999'}} ref={circleRef}>
                     <CircleComponent/>
                 </div>
                 <div style={{zIndex: '11'}} ref={invertedCircleRef}>

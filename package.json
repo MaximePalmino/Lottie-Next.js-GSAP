@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@loadable/component": "^5.16.2",
     "gsap": "^3.12.4",
     "lottie-react": "^2.4.0",
     "next": "14.0.4",
@@ -19,6 +20,7 @@
     "use-sound": "^4.0.1"
   },
   "devDependencies": {
+    "@types/loadable__component": "^5.13.8",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
