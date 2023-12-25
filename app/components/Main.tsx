@@ -15,6 +15,7 @@ import gsap from 'gsap';
 import Arrow from "@/assets/svg/Arrow.svg"
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import Image from "next/image";
+import {useGSAP} from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -37,7 +38,7 @@ const Home = () => {
 
 
     // Effect for GSAP animations
-    useLayoutEffect(() => {
+    useGSAP(() => {
 
         gsap.fromTo(firstAnimationRef.current, {autoAlpha: 0, scale: 1.2, delay: 2}, {
             scale: 1,
