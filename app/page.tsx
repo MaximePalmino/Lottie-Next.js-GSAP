@@ -2,6 +2,10 @@
 import React, {useState} from 'react';
 import Main from "@/app/components/Main";
 import Sound from "@/public/Reson1.mp3"
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+
+// Registering ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
 
 // Home component definition
 const Home = () => {
