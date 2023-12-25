@@ -12,9 +12,7 @@ import FlowersAnimation from '@/assets/svg/Flor.json';
 import CircleComponent from '@/app/components/Circle';
 import InvertedCircleComponent from '@/app/components/InvertedCircle';
 import gsap from 'gsap';
-import {useGSAP} from "@gsap/react";
 import Arrow from "@/assets/svg/Arrow.svg"
-import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import Image from "next/image";
 
 // Home component definition
@@ -33,11 +31,7 @@ const Home = () => {
     const eyeRef = useRef(null);
     const btnRef = useRef(null)
 
-    useLayoutEffect(() => {
-        // Registering ScrollTrigger plugin
-        gsap.registerPlugin(ScrollTrigger);
 
-    }, [])
     // Effect for GSAP animations
     useEffect(() => {
 
