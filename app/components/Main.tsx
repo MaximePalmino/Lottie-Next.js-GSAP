@@ -38,7 +38,9 @@ const Home = () => {
 
 
     // Effect for GSAP animations
-    useGSAP(() => {
+    useEffect(() => {
+
+        gsap.registerPlugin(ScrollTrigger);
 
         gsap.fromTo(firstAnimationRef.current, {autoAlpha: 0, scale: 1.2, delay: 2}, {
             scale: 1,

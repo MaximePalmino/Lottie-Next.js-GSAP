@@ -1,5 +1,5 @@
 'use client'
-import React, {useLayoutEffect, useState} from 'react';
+import React, {useEffect, useLayoutEffect, useState} from 'react';
 import Main from "@/app/components/Main";
 import Sound from "@/public/Reson1.mp3"
 import gsap from "gsap/dist/gsap";
@@ -22,7 +22,10 @@ const Home = () => {
         setIsAnswered(true)
         setIsAllowingMusic(false)
     }
+    useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
 
+    }, []);
 
     return (
         (!isAnswered ? <div className={'flexW maxH'}>
