@@ -19,7 +19,7 @@ import {useGSAP} from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-ScrollTrigger.config({ limitCallbacks: true });
+ScrollTrigger.config({limitCallbacks: true});
 // Home component definition
 const Home = () => {
     // State variables
@@ -68,7 +68,7 @@ const Home = () => {
                 rotate: 5
             });
 
-            gsap.fromTo(fougereRef.current, {scale: 1, rotate: 0, autoAlpha: 1}, {
+            let ctx = gsap.fromTo(fougereRef.current, {scale: 1, rotate: 0, autoAlpha: 1}, {
                 scale: 0.3, rotate: 70,
                 scrollTrigger: {
                     trigger: fougereRef.current,
@@ -99,7 +99,10 @@ const Home = () => {
             });
 
             setIsAnimationFinished(true);
+            return () => ctx.revert(); // cleanup!
+
         }, 2900);
+
     }, []);
 
     return (
