@@ -66,7 +66,6 @@ const Home = () => {
             delay: 2.9
         });
         setTimeout(() => {
-
             gsap.fromTo(fernRef.current, {scale: 1, rotate: 0, autoAlpha: 1}, {
                 scale: 0.3, rotate: 70,
                 scrollTrigger: {
