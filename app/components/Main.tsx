@@ -32,10 +32,14 @@ const Home = () => {
     const handsRef = useRef(null);
     const eyeRef = useRef(null);
     const btnRef = useRef(null)
-    // Effect for GSAP animations
-    useEffect(() => {
+
+    useLayoutEffect(() => {
         // Registering ScrollTrigger plugin
         gsap.registerPlugin(ScrollTrigger);
+
+    }, [])
+    // Effect for GSAP animations
+    useEffect(() => {
 
         gsap.fromTo(firstAnimationRef.current, {autoAlpha: 0, scale: 1.2, delay: 2}, {
             scale: 1,
