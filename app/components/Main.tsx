@@ -69,7 +69,7 @@ const Home = () => {
                     trigger: fougereRef.current,
                     start: 'top',
                     scrub: 3,
-                    markers: false
+                    markers: true
                 }
             });
 

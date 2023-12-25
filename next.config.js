@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     webpack(config, options) {
+        const withTM = require("next-transpile-modules")(["gsap"]);
         const {isServer} = options;
         config.module.rules.push({
             test: /\.(ogg|mp3|wav|mpe?g)$/i,
@@ -25,3 +26,5 @@ const nextConfig = {
 }
 
 module.exports = nextConfig
+module.exports = withTM({});
+
