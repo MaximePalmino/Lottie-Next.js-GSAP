@@ -41,32 +41,27 @@ const Home = () => {
         gsap.fromTo(firstAnimationRef.current, {autoAlpha: 0, scale: 1.2, delay: 2}, {
             scale: 1,
             autoAlpha: 1,
-            duration: 3,
+            duration: 2,
             ease: 'expo.out'
         });
 
         gsap.fromTo(circleRef.current, {autoAlpha: 0, duration: 1}, {autoAlpha: 1, delay: 1.3});
         gsap.fromTo(invertedCircleRef.current, {autoAlpha: 0, duration: 1}, {autoAlpha: 1, delay: 1.5});
-
         gsap.fromTo(fougereRef.current, {opacity: 0}, {opacity: 1, duration: 0.3, delay: 2.8});
         gsap.fromTo(leavesRef.current, {opacity: 0}, {opacity: 1, duration: 0.3, delay: 2.8});
         gsap.fromTo(handsRef.current, {opacity: 0}, {opacity: 1, duration: 0.3, delay: 2.8});
         gsap.fromTo(eyeRef.current, {opacity: 0}, {opacity: 1, duration: 0.3, delay: 2.8});
         gsap.fromTo(btnRef.current, {opacity: 0}, {opacity: 1, duration: 2, delay: 3});
 
-        // setTimeout(() => {
-        //     setShowCircle(true);
-        // }, 2900);
-
         setTimeout(() => {
             gsap.fromTo(firstAnimationRef.current, {opacity: 1, scale: 1, rotate: 0}, {
                 opacity: 0,
-                duration: 2,
-                scale: 1.1,
-                rotate: 5
+                duration: 1.5,
+                scale: 1.2,
+                rotate: 2
             });
 
-            let ctx = gsap.fromTo(fougereRef.current, {scale: 1, rotate: 0, autoAlpha: 1}, {
+            gsap.fromTo(fougereRef.current, {scale: 1, rotate: 0, autoAlpha: 1}, {
                 scale: 0.3, rotate: 70,
                 scrollTrigger: {
                     trigger: fougereRef.current,
@@ -96,32 +91,10 @@ const Home = () => {
                 }
             });
             setIsAnimationFinished(true);
-            return () => ctx.revert(); // cleanup!
-
         }, 2800);
 
     }, []);
-    const handleButtonClick = () => {
-        const hElements = document.getElementsByClassName('random-h');
 
-        // Remove existing "H" elements
-        while (hElements.length > 0) {
-            // @ts-ignore
-            hElements[0].parentNode.removeChild(hElements[0]);
-        }
-
-        // Generate and add new "H" elements randomly
-        for (let i = 0; i < 10; i++) {
-            const hElement = document.createElement('div');
-            hElement.className = 'random-h';
-            hElement.textContent = '☀️';
-            hElement.style.zIndex = '-1';
-            hElement.style.position = 'fixed';
-            hElement.style.left = `${Math.random() * window.innerWidth}px`;
-            hElement.style.top = `${Math.random() * window.innerHeight}px`;
-            document.body.appendChild(hElement);
-        }
-    };
 
     return (
         <div className={isAnimationFinished ? 'h' : ''}>
@@ -136,27 +109,24 @@ const Home = () => {
                     <div style={{zIndex: '3'}} className={'absolute'} ref={firstAnimationRef}>
                         <Lottie animationData={FlowersAnimation} loop={true}/>
                     </div>
-                    {showCircle && (
-                        <>
-                            <div className={'absolute'} style={{zIndex: '2'}} ref={fougereRef}>
-                                <Lottie animationData={Fougeres} loop={true}/>
-                            </div>
-                            <div className={'absolute'} style={{zIndex: '1'}} ref={leavesRef}>
-                                <Lottie animationData={Leaves} loop={true}/>
-                            </div>
-                            <div className={'absolute'} style={{zIndex: '3'}} ref={handsRef}>
-                                <Lottie animationData={Hands} loop={true}/>
-                            </div>
-                            <div className={'absolute'} style={{zIndex: '1'}} ref={eyeRef}>
-                                <Lottie animationData={EyeAnimation} loop={false}/>
-                            </div>
-                        </>
-                    )}
+                    <>
+                        <div className={'absolute'} style={{zIndex: '2'}} ref={fougereRef}>
+                            <Lottie animationData={Fougeres} loop={true}/>
+                        </div>
+                        <div className={'absolute'} style={{zIndex: '1'}} ref={leavesRef}>
+                            <Lottie animationData={Leaves} loop={true}/>
+                        </div>
+                        <div className={'absolute'} style={{zIndex: '3'}} ref={handsRef}>
+                            <Lottie animationData={Hands} loop={true}/>
+                        </div>
+                        <div className={'absolute'} style={{zIndex: '1'}} ref={eyeRef}>
+                            <Lottie animationData={EyeAnimation} loop={false}/>
+                        </div>
+                    </>
                 </div>
                 <div className='flex justify-around pt-32 h-full items-center gap-8  flex-col'>
                     <div ref={btnRef} className='flex gap-2'>
                         <p className='opacity-60 '>Scroll</p>
-
                         <div className='flex opacity-60'>
                             <Image width={'15'} height={'20'} src={Arrow} alt={'arrow'}/>
                             <Image style={{transform: 'rotate(180deg)'}} width={'15'} height={'20'} src={Arrow}
@@ -169,8 +139,8 @@ const Home = () => {
                     <div className='flex justify-center items-end  gap-8 h-full '>
                         <button className="btn"><Link href="https://www.linkedin.com/in/maxime-palmino-167930100/"
                                                       target="_blank">LinkedIn</Link></button>
-                        <button className="btn" onClick={handleButtonClick}><a>
-                           ☀️ Thanks for visiting ☀️
+                        <button className="btn"><a>
+                            ☀️ Thanks for visiting ☀️
                         </a></button>
 
                         <button className="btn"><Link href="https://github.com/MaximePalmino/shiningsoul"
@@ -181,6 +151,7 @@ const Home = () => {
                 </div>
 
             </div>
+
         </div>
     );
 };

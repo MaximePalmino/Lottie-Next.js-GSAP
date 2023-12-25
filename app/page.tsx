@@ -1,5 +1,5 @@
 'use client'
-import React, {useEffect, useLayoutEffect, useState} from 'react';
+import React, {useEffect, useLayoutEffect, useRef, useState} from 'react';
 import Main from "@/app/components/Main";
 import Sound from "@/public/Reson1.mp3"
 import gsap from 'gsap';
@@ -18,10 +18,52 @@ const Home = () => {
         setIsAnswered(true)
         setIsAllowingMusic(false)
     }
+    const handleButtonClick = () => {
+        const hElements = document.getElementsByClassName('random-h');
+
+        // Remove existing "H" elements
+        while (hElements.length > 0) {
+            // @ts-ignore
+            hElements[0].parentNode.removeChild(hElements[0]);
+        }
+
+        // Generate and add new "H" elements with GSAP animation for opacity
+        for (let i = 0; i < 30; i++) {
+            const hElement = document.createElement('div');
+            hElement.className = 'random-h';
+            hElement.textContent = '☀️';
+            hElement.style.zIndex = '-1';
+            hElement.style.position = 'fixed';
+            hElement.style.left = `${Math.random() * window.innerWidth}px`;
+            hElement.style.top = `${Math.random() * window.innerHeight}px`;
+
+            // Set a slower animation duration for each "H" element
+            const animationDuration = 5 + Math.random() * 10; // Adjust the range as needed
+            const animationDirection = Math.random() > 0.5 ? 1 : -1; // 1 for clockwise, -1 for counterclockwise
+
+            // Set a smaller font size for each "H" element
+            const fontSize = 1 + Math.random() * 5; // Adjust the range as needed
+            hElement.style.fontSize = `${fontSize}px`;
+
+            // Set initial opacity to 0
+            hElement.style.opacity = '0';
+
+            // Use GSAP to animate opacity from 0 to 1
+            gsap.to(hElement, {
+                opacity: 1,
+                duration: .5, // Adjust the duration as needed
+                delay: Math.random(), // Introduce a delay for a staggered effect
+            });
+
+            hElement.style.animation = `moveRandomly ${animationDuration}s infinite linear ${
+                animationDirection > 0 ? 'normal' : 'reverse'
+            }`;
+
+            document.body.appendChild(hElement);
+        }
+    };
     useLayoutEffect(() => {
-
-        gsap.registerPlugin(ScrollTrigger);
-
+        handleButtonClick()
     }, []);
 
     return (

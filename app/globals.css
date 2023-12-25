@@ -164,3 +164,8 @@ body::-webkit-scrollbar {
         transform: translate(0, 0) rotate(180deg);
     }
 }
+
+.sun {
+    position: fixed;
+    font-size: 5px;
+}
