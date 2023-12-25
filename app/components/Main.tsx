@@ -48,10 +48,10 @@ const Home = () => {
         gsap.fromTo(circleRef.current, {autoAlpha: 0, duration: 1}, {autoAlpha: 1, delay: 1.3});
         gsap.fromTo(invertedCircleRef.current, {autoAlpha: 0, duration: 1}, {autoAlpha: 1, delay: 1.5});
 
-        gsap.fromTo(fougereRef.current, {opacity: 0}, {opacity: 1, duration: 3, delay: 2.8});
-        gsap.fromTo(leavesRef.current, {opacity: 0}, {opacity: 1, duration: 3, delay: 2.8});
-        gsap.fromTo(handsRef.current, {opacity: 0}, {opacity: 1, duration: 3, delay: 2.8});
-        gsap.fromTo(eyeRef.current, {opacity: 0}, {opacity: 1, duration: 3, delay: 2.8});
+        gsap.fromTo(fougereRef.current, {opacity: 0}, {opacity: 1, duration: 0.3, delay: 2.8});
+        gsap.fromTo(leavesRef.current, {opacity: 0}, {opacity: 1, duration: 0.3, delay: 2.8});
+        gsap.fromTo(handsRef.current, {opacity: 0}, {opacity: 1, duration: 0.3, delay: 2.8});
+        gsap.fromTo(eyeRef.current, {opacity: 0}, {opacity: 1, duration: 0.3, delay: 2.8});
         gsap.fromTo(btnRef.current, {opacity: 0}, {opacity: 1, duration: 2, delay: 3});
 
         // setTimeout(() => {
@@ -72,7 +72,7 @@ const Home = () => {
                     trigger: fougereRef.current,
                     start: 'top',
                     scrub: 3,
-                    markers: true
+                    markers: false
                 }
             });
 
@@ -82,7 +82,7 @@ const Home = () => {
                     trigger: handsRef.current,
                     start: 'top top',
                     scrub: 3,
-                    markers: true
+                    markers: false
                 }
             });
 
@@ -92,15 +92,13 @@ const Home = () => {
                     trigger: eyeRef.current,
                     start: 'top top',
                     scrub: 5,
-                    markers: true
+                    markers: false
                 }
             });
-            console.log(ctx, fougereRef, eyeRef)
-
             setIsAnimationFinished(true);
             return () => ctx.revert(); // cleanup!
 
-        }, 2900);
+        }, 2800);
 
     }, []);
 
