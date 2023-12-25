@@ -19,7 +19,7 @@ import Image from "next/image";
 // Home component definition
 const Home = () => {
     // State variables
-    const [showCircle, setShowCircle] = useState(false);
+    const [showCircle, setShowCircle] = useState(true);
     const [isAnimationFinished, setIsAnimationFinished] = useState(false);
 
     // Refs for GSAP animations
@@ -54,9 +54,9 @@ const Home = () => {
         gsap.fromTo(eyeRef.current, {opacity: 0}, {opacity: 1, duration: 3, delay: 2.8});
         gsap.fromTo(btnRef.current, {opacity: 0}, {opacity: 1, duration: 2, delay: 3});
 
-        setTimeout(() => {
-            setShowCircle(true);
-        }, 2900);
+        // setTimeout(() => {
+        //     setShowCircle(true);
+        // }, 2900);
 
         setTimeout(() => {
             gsap.fromTo(firstAnimationRef.current, {opacity: 1, scale: 1, rotate: 0}, {
