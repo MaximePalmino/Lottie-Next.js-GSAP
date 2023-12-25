@@ -10,6 +10,7 @@ const nextConfig = {
                 {
                     loader: require.resolve('url-loader'),
                     options: {
+                        transpilePackages: ['gsap'],
                         limit: config.inlineImageLimit,
                         fallback: require.resolve('file-loader'),
                         publicPath: `${config.assetPrefix}/_next/static/images/`,
