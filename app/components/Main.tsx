@@ -74,7 +74,7 @@ const Home = () => {
                     trigger: fougereRef.current,
                     start: 'top',
                     scrub: 3,
-                    markers: false
+                    markers: true
                 }
             });
 
@@ -84,7 +84,7 @@ const Home = () => {
                     trigger: handsRef.current,
                     start: 'top top',
                     scrub: 3,
-                    markers: false
+                    markers: true
                 }
             });
 
