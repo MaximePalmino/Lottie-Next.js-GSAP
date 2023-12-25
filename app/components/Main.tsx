@@ -12,7 +12,7 @@ import CircleComponent from '@/app/components/Circle';
 import InvertedCircleComponent from '@/app/components/InvertedCircle';
 import {gsap} from 'gsap';
 import Arrow from "@/assets/svg/Arrow.svg"
-import ScrollTrigger from 'gsap/ScrollTrigger';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import Image from "next/image";
 
 // Registering ScrollTrigger plugin
