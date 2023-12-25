@@ -17,9 +17,7 @@ import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import Image from "next/image";
 import {useGSAP} from "@gsap/react";
 
-gsap.registerPlugin(ScrollTrigger);
 
-ScrollTrigger.config({limitCallbacks: true});
 // Home component definition
 const Home = () => {
     // State variables
