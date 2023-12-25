@@ -1,5 +1,5 @@
 'use client'
-import React, {useEffect, useState, useRef} from 'react';
+import React, {useEffect, useState, useRef, useLayoutEffect} from 'react';
 import { lazy } from 'react';
 import loadable from '@loadable/component'
 const Lottie = lazy(() => import('lottie-react'))
@@ -34,7 +34,7 @@ const Home = () => {
     const eyeRef = useRef(null);
     const btnRef = useRef(null)
     // Effect for GSAP animations
-    useEffect(() => {
+    useLayoutEffect(() => {
 
         gsap.fromTo(firstAnimationRef.current, {autoAlpha: 0, scale: 1.2, delay: 2}, {
             scale: 1,
