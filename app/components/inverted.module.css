@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Ginger';
+    src: url('../../assets/fonts/ginger.otf');
+}
+
 .container {
     margin: 0%;
 }
