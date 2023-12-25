@@ -21,6 +21,11 @@ body {
     background-color: #090909;
 }
 
+body::-webkit-scrollbar {
+    display: none;
+
+}
+
 .absolute {
     position: fixed;
     width: 75%;
