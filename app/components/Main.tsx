@@ -59,7 +59,7 @@ const Home = () => {
             setShowCircle(true);
         }, 2900);
 
-        setTimeout(() => {
+        // setTimeout(() => {
             gsap.fromTo(firstAnimationRef.current, {opacity: 1, scale: 1, rotate: 0}, {
                 opacity: 0,
                 duration: 2,
@@ -98,7 +98,7 @@ const Home = () => {
             });
 
             setIsAnimationFinished(true);
-        }, 2900);
+        // }, 2900);
     }, []);
 
     return (
