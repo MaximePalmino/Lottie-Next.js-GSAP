@@ -4,7 +4,7 @@ import Main from "@/app/components/Main";
 import Sound from "@/public/Reson1.mp3"
 
 import gsap from "gsap";
-import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 
 // Home component definition
