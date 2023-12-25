@@ -37,7 +37,7 @@ const Home = () => {
 
 
     // Effect for GSAP animations
-    useEffect(() => {
+    useLayoutEffect(() => {
 
         gsap.fromTo(firstAnimationRef.current, {autoAlpha: 0, scale: 1.2, delay: 2}, {
             scale: 1,
