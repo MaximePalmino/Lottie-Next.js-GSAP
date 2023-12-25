@@ -93,7 +93,7 @@ const Home = () => {
                     trigger: eyeRef.current,
                     start: 'top top',
                     scrub: 5,
-                    markers: false
+                    markers: true
                 }
             });
 
