@@ -79,6 +79,7 @@ const Home = () => {
                     markers: true
                 }
             });
+            console.log(ctx, fougereRef, eyeRef)
 
             gsap.fromTo(handsRef.current, {scale: 1, rotate: 0, autoAlpha: 1}, {
                 rotate: 90,
