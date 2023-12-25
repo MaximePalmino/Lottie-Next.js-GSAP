@@ -3,10 +3,6 @@ import React, {useLayoutEffect, useState} from 'react';
 import Main from "@/app/components/Main";
 import Sound from "@/public/Reson1.mp3"
 
-import { gsap } from "gsap/dist/gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 // Home component definition
 const Home = () => {
@@ -23,9 +19,7 @@ const Home = () => {
         setIsAllowingMusic(false)
     }
 
-    useLayoutEffect(() => {
-        gsap.registerPlugin(ScrollTrigger);
-    })
+
     return (
         (!isAnswered ? <div className={'flexW maxH'}>
                     <div className='flex justify-around pt-32 h-full items-center gap-8  flex-col'>
