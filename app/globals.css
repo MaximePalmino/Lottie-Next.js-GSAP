@@ -138,3 +138,29 @@ body::-webkit-scrollbar {
     bottom: 0;
     animation: gradientAnimation 5s infinite;
 }
+
+
+/* Add this to your styles or global styles */
+.random-h {
+    position: absolute;
+    animation: moveRandomly 10s infinite linear;
+}
+
+
+@keyframes moveRandomly {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(50px, 50px) rotate(45deg);
+    }
+    50% {
+        transform: translate(100px, 0) rotate(90deg);
+    }
+    75% {
+        transform: translate(50px, -50px) rotate(135deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(180deg);
+    }
+}

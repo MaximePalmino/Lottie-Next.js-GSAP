@@ -14,7 +14,7 @@ import gsap from 'gsap';
 import Arrow from "@/assets/svg/Arrow.svg"
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import Image from "next/image";
-
+import Link from "next/link";
 
 // Home component definition
 const Home = () => {
@@ -101,6 +101,27 @@ const Home = () => {
         }, 2800);
 
     }, []);
+    const handleButtonClick = () => {
+        const hElements = document.getElementsByClassName('random-h');
+
+        // Remove existing "H" elements
+        while (hElements.length > 0) {
+            // @ts-ignore
+            hElements[0].parentNode.removeChild(hElements[0]);
+        }
+
+        // Generate and add new "H" elements randomly
+        for (let i = 0; i < 10; i++) {
+            const hElement = document.createElement('div');
+            hElement.className = 'random-h';
+            hElement.textContent = '☀️';
+            hElement.style.zIndex = '-1';
+            hElement.style.position = 'fixed';
+            hElement.style.left = `${Math.random() * window.innerWidth}px`;
+            hElement.style.top = `${Math.random() * window.innerHeight}px`;
+            document.body.appendChild(hElement);
+        }
+    };
 
     return (
         <div className={isAnimationFinished ? 'h' : ''}>
@@ -134,7 +155,7 @@ const Home = () => {
                 </div>
                 <div className='flex justify-around pt-32 h-full items-center gap-8  flex-col'>
                     <div ref={btnRef} className='flex gap-2'>
-                            <p className='opacity-60 '>Scroll</p>
+                        <p className='opacity-60 '>Scroll</p>
 
                         <div className='flex opacity-60'>
                             <Image width={'15'} height={'20'} src={Arrow} alt={'arrow'}/>
@@ -146,9 +167,14 @@ const Home = () => {
                     </div>
 
                     <div className='flex justify-center items-end  gap-8 h-full '>
-                        <button className="btn"><a href="#">Github</a></button>
-                        <button className="btn"><a href="#">LinkedIn</a></button>
-                        <button className="btn"><a href="#">Markers</a></button>
+                        <button className="btn"><Link href="https://www.linkedin.com/in/maxime-palmino-167930100/"
+                                                      target="_blank">LinkedIn</Link></button>
+                        <button className="btn" onClick={handleButtonClick}><a>
+                           ☀️ Thanks for visiting ☀️
+                        </a></button>
+
+                        <button className="btn"><Link href="https://github.com/MaximePalmino/shiningsoul"
+                                                      target="_blank">GitHub</Link></button>
                     </div>
                     <p className='opacity-60 font-light text-xs'>Music: Resonance x Genesis x Not Allowed (Slowed)</p>
 
