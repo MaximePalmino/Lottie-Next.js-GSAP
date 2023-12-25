@@ -2,6 +2,7 @@
 import React, {useLayoutEffect, useState} from 'react';
 import Main from "@/app/components/Main";
 import Sound from "@/public/Reson1.mp3"
+import gsap from 'gsap';
 
 const Home = () => {
 
@@ -17,7 +18,7 @@ const Home = () => {
         setIsAllowingMusic(false)
     }
     const handleButtonClick = () => {
-        const hElements = document.getElementsByClassName('random-h');
+        const hElements = document.getElementsByClassName('random-sun');
         while (hElements.length > 0) {
             // @ts-ignore
             hElements[0].parentNode.removeChild(hElements[0]);
@@ -25,7 +26,7 @@ const Home = () => {
         // Generate and add new "H" elements with GSAP animation for opacity
         for (let i = 0; i < 30; i++) {
             const hElement = document.createElement('div');
-            hElement.className = 'random-h';
+            hElement.className = 'random-sun';
             hElement.textContent = '☀️';
             hElement.style.zIndex = '-1';
             hElement.style.position = 'fixed';
@@ -60,9 +61,9 @@ const Home = () => {
     }, []);
 
     return (
-        (!isAnswered ? <div className={'flexW maxH'}>
+        (!isAnswered ? <div className={'flex justify-center items-end h-full w-full pb-5 fixed gap-4'}>
                     <div className='flex justify-around pt-32 h-full items-center gap-8  flex-col'>
-                        <div className='flex  flex-col justify-center items-center  gap-8 h-full '>
+                        <div className='flex flex-col justify-center items-center  gap-8 h-full '>
                             <p className='opacity-75'>Do you allow music ?</p>
                             <div className='flex gap-4 '>
                                 <button className="btn" onClick={handleAcceptMusic}><a href="#">Yes</a>

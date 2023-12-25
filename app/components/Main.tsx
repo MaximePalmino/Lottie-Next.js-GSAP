@@ -92,8 +92,8 @@ const Home = () => {
 
 
     return (
-        <div className={isAnimationFinished ? 'h' : ''}>
-            <div className={'flexW maxH'}>
+        <div className={isAnimationFinished ? 'height' : ''}>
+            <div className={'flex-width'}>
                 <div style={{zIndex: '9999'}} ref={circleRef}>
                     <CircleComponent/>
                 </div>

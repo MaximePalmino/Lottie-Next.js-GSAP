@@ -35,7 +35,7 @@ body::-webkit-scrollbar {
     overflow: hidden;
 }
 
-.flexW {
+.flex-width {
     justify-content: center;
     align-items: end;
     height: 100vh;
@@ -45,7 +45,7 @@ body::-webkit-scrollbar {
     gap: .5em;
 }
 
-.h {
+.height {
     height: 200vh;
 }
 
@@ -141,7 +141,7 @@ body::-webkit-scrollbar {
 
 
 /* Add this to your styles or global styles */
-.random-h {
+.random-sun {
     position: absolute;
     animation: moveRandomly 10s infinite linear;
 }
@@ -171,7 +171,7 @@ body::-webkit-scrollbar {
 }
 
 @media only screen and (max-width: 700px) {
-  .flexW {
-      display: none;
-  }
+    .flexW {
+        display: none;
+    }
 }
