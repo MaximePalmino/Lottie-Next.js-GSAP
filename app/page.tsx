@@ -2,12 +2,8 @@
 import React, {useEffect, useLayoutEffect, useState} from 'react';
 import Main from "@/app/components/Main";
 import Sound from "@/public/Reson1.mp3"
-import gsap from "gsap/dist/gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
-
-ScrollTrigger.config({ limitCallbacks: true });
-
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 // Home component definition
 const Home = () => {
 
@@ -22,7 +18,8 @@ const Home = () => {
         setIsAnswered(true)
         setIsAllowingMusic(false)
     }
-    useEffect(() => {
+    useLayoutEffect(() => {
+
         gsap.registerPlugin(ScrollTrigger);
 
     }, []);

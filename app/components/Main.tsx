@@ -1,7 +1,6 @@
 'use client'
 import React, {useEffect, useState, useRef, useLayoutEffect} from 'react';
 import {lazy} from 'react';
-import loadable from '@loadable/component'
 
 const Lottie = lazy(() => import('lottie-react'))
 import EyeAnimation from '@/assets/svg/Oeil.json';
@@ -15,7 +14,6 @@ import gsap from 'gsap';
 import Arrow from "@/assets/svg/Arrow.svg"
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import Image from "next/image";
-import {useGSAP} from "@gsap/react";
 
 
 // Home component definition
