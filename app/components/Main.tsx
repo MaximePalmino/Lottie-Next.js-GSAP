@@ -1,7 +1,8 @@
 'use client'
 import React, {useEffect, useState, useRef, useLayoutEffect} from 'react';
-import { lazy } from 'react';
+import {lazy} from 'react';
 import loadable from '@loadable/component'
+
 const Lottie = lazy(() => import('lottie-react'))
 import EyeAnimation from '@/assets/svg/Oeil.json';
 import Fougeres from "@/assets/svg/Fougeres.json"
@@ -10,11 +11,11 @@ import Hands from "@/assets/svg/blue-hands.json"
 import FlowersAnimation from '@/assets/svg/Flor.json';
 import CircleComponent from '@/app/components/Circle';
 import InvertedCircleComponent from '@/app/components/InvertedCircle';
-import {gsap} from 'gsap';
+import gsap from 'gsap';
+import {useGSAP} from "@gsap/react";
 import Arrow from "@/assets/svg/Arrow.svg"
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import Image from "next/image";
-
 // Registering ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
@@ -34,7 +35,7 @@ const Home = () => {
     const eyeRef = useRef(null);
     const btnRef = useRef(null)
     // Effect for GSAP animations
-    useLayoutEffect(() => {
+    useGSAP(() => {
 
         gsap.fromTo(firstAnimationRef.current, {autoAlpha: 0, scale: 1.2, delay: 2}, {
             scale: 1,
