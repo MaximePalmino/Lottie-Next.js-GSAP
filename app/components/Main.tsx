@@ -29,6 +29,17 @@ const Home = () => {
     const eyeRef = useRef(null);
     const btnRef = useRef(null)
 
+    const handleThanksClick = () => {
+        const randomSunElements = document.getElementsByClassName('random-sun');
+        for (let i = 0; i < randomSunElements.length; i++) {
+            randomSunElements[i].textContent = '♥';
+            //@ts-ignore
+            randomSunElements[i].style.fontSize = '24px';
+            //@ts-ignore
+            randomSunElements[i].style.color = 'red';
+
+        }
+    };
 
     // Effect for GSAP animations
     useEffect(() => {
@@ -47,14 +58,14 @@ const Home = () => {
         gsap.fromTo(handsRef.current, {opacity: 0}, {opacity: 1, duration: 0.3, delay: 2.8});
         gsap.fromTo(eyeRef.current, {opacity: 0}, {opacity: 1, duration: 0.3, delay: 2.8});
         gsap.fromTo(btnRef.current, {opacity: 0}, {opacity: 1, duration: 2, delay: 3});
-
+        gsap.fromTo(FlowersAnimationRef.current, {opacity: 1, scale: 1, rotate: 0}, {
+            opacity: 0,
+            duration: 4,
+            scale: 1.2,
+            rotate: 2,
+            delay: 2.9
+        });
         setTimeout(() => {
-            gsap.fromTo(FlowersAnimationRef.current, {opacity: 1, scale: 1, rotate: 0}, {
-                opacity: 0,
-                duration: 4,
-                scale: 1.2,
-                rotate: 2
-            });
 
             gsap.fromTo(fernRef.current, {scale: 1, rotate: 0, autoAlpha: 1}, {
                 scale: 0.3, rotate: 70,
@@ -94,13 +105,13 @@ const Home = () => {
     return (
         <div className={isAnimationFinished ? 'height' : ''}>
             <div className={'flex-width'}>
-                <div style={{zIndex: '9999'}} ref={circleRef}>
+                <div ref={circleRef}>
                     <CircleComponent/>
                 </div>
                 <div style={{zIndex: '11'}} ref={invertedCircleRef}>
                     <InvertedCircleComponent/>
                 </div>
-                <div className={'child'}>
+                <div>
                     <div style={{zIndex: '3'}} className={'absolute'} ref={FlowersAnimationRef}>
                         <Lottie animationData={FlowersAnimation} loop={true}/>
                     </div>
@@ -121,20 +132,19 @@ const Home = () => {
                 </div>
                 <div className='flex justify-around pt-32 h-full items-center gap-8  flex-col'>
                     <div ref={btnRef} className='flex gap-2'>
-                        <p className='opacity-60 '>Scroll</p>
+                        <p className='opacity-60'>Scroll</p>
                         <div className='flex opacity-60'>
                             <Image width={'15'} height={'20'} src={Arrow} alt={'arrow'}/>
                             <Image style={{transform: 'rotate(180deg)'}} width={'15'} height={'20'} src={Arrow}
                                    alt={'arrow'}/>
                         </div>
                     </div>
-                    <div className='flex justify-center items-end  gap-8 h-full '>
+                    <div className='flex justify-center items-end gap-8 h-full '>
                         <button className="btn"><Link href="https://www.linkedin.com/in/maxime-palmino-167930100/"
                                                       target="_blank">LinkedIn</Link></button>
-                        <button className="btn"><a>
+                        <button className="btn" onClick={handleThanksClick}><a>
                             ☀️ Thanks for visiting ☀️
                         </a></button>
-
                         <button className="btn"><Link href="https://github.com/MaximePalmino/shiningsoul"
                                                       target="_blank">GitHub</Link></button>
                     </div>
