@@ -86,7 +86,7 @@ body::-webkit-scrollbar {
     z-index: 10;
     font-weight: 200;
     letter-spacing: 1px;
-    font-size: 12px;
+    font-size: 10px;
     text-decoration: none;
     overflow: hidden;
     text-transform: uppercase;

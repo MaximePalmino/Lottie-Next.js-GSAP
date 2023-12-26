@@ -15,7 +15,7 @@ import Arrow from "@/assets/svg/arrow.svg"
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import Image from "next/image";
 import Link from "next/link";
-
+import Btn from "@/assets/svg/button-03.svg";
 const Home = () => {
     const [isAnimationFinished, setIsAnimationFinished] = useState(false);
 
@@ -115,6 +115,7 @@ const Home = () => {
                         <Lottie animationData={FlowersAnimation} loop={true}/>
                     </div>
                     <>
+
                         <div className={'absolute'} style={{zIndex: '2'}} ref={fernRef}>
                             <Lottie animationData={Fern} loop={true}/>
                         </div>
@@ -142,7 +143,9 @@ const Home = () => {
                         <button className="btn"><Link href="https://www.linkedin.com/in/maxime-palmino-167930100/"
                                                       target="_blank">LinkedIn</Link></button>
                         <button className="btn" onClick={handleThanksClick}><a>
-                            ☀️ Thanks for visiting ☀️
+                                                       <Image width={'25'} height={'35'} alt={'hello'} src={Btn.src}/>️
+                            Thanks for visiting                             <Image width={'25'} height={'35'} alt={'hello'} src={Btn.src}/>️
+
                         </a></button>
                         <button className="btn"><Link href="https://github.com/MaximePalmino/shiningsoul"
                                                       target="_blank">GitHub</Link></button>
