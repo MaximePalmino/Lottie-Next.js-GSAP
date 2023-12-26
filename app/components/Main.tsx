@@ -103,7 +103,7 @@ const Home = () => {
 
     return (
         <div className={isAnimationFinished ? 'height' : ''}>
-            <div className={'flex-width'}>
+            <div className={'flex-width mobile'}>
                 <div ref={circleRef}>
                     <CircleComponent/>
                 </div>
@@ -147,6 +147,7 @@ const Home = () => {
                         <button className="btn"><Link href="https://github.com/MaximePalmino/shiningsoul"
                                                       target="_blank">GitHub</Link></button>
                     </div>
+                    <p className='opacity-60 font-light text-xs'>Music: Resonance x Genesis x Not Allowed (Slowed)</p>
                 </div>
             </div>
         </div>
