@@ -1,7 +1,7 @@
 'use client'
 import React, {useLayoutEffect, useState} from 'react';
 import Main from "@/app/components/Main";
-import Sound from "@/public/Reson1.mp3"
+import Sound from "@/public/Reson2.mp3"
 import gsap from 'gsap';
 
 const Home = () => {
