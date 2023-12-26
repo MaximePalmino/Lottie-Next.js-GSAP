@@ -82,7 +82,7 @@ const Home = () => {
                         </audio>
                     )}
                     <Main/>
-                    <h1 className='opacity-75 mobile-display'>Please watch on a bigger screen. 🙏</h1>
+                    <h1 className='opacity-75 mobile-display text-white'>Please watch on a bigger screen. 🙏</h1>
                 </div>
         )
     );
