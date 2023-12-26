@@ -95,10 +95,10 @@ body::-webkit-scrollbar {
 }
 
 .btn:hover a {
-    color: rgba(241, 241, 241, 0.8);
+    color: rgba(241, 241, 241, 0.75);
     font-weight: 800;
     cursor: pointer;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 }
 
 .btn::before,
