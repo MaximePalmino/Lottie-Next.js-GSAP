@@ -61,8 +61,8 @@ const Home = () => {
     }, []);
 
     return (
-        (!isAnswered ? <div className={'flex justify-center items-end h-full w-full pb-5 fixed gap-4'}>
-                    <div className='flex justify-around pt-32 h-full items-center gap-8  flex-col'>
+        (!isAnswered ? <div className={'flex justify-center items-center h-full w-full pb-5 fixed gap-4 '}>
+                    <div className='flex justify-around pt-32 h-full items-center gap-8  flex-col mobile'>
                         <div className='flex flex-col justify-center items-center  gap-8 h-full '>
                             <p className='opacity-75 text-white'>Enable background music ? (recommended)</p>
                             <div className='flex gap-4 '>
@@ -73,14 +73,16 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
+                    <h1 className='opacity-75 mobile-display'>Please watch on a bigger screen. 🙏</h1>
                 </div> :
-                <div>
+                <div className='mobile'>
                     {isAllowingMusic && (
                         <audio id="audio" loop autoPlay>
                             <source src={Sound} type="audio/mpeg"/>
                         </audio>
                     )}
                     <Main/>
+                    <h1 className='opacity-75 mobile-display'>Please watch on a bigger screen. 🙏</h1>
                 </div>
         )
     );

@@ -147,7 +147,6 @@ const Home = () => {
                         <button className="btn"><Link href="https://github.com/MaximePalmino/shiningsoul"
                                                       target="_blank">GitHub</Link></button>
                     </div>
-                    <p className='opacity-60 font-light text-xs'>Music: Resonance x Genesis x Not Allowed (Slowed)</p>
                 </div>
             </div>
         </div>
